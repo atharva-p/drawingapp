@@ -1,1 +1,19 @@
-var canvas = document.getElementById("canvas");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+//first path
+ctx.beginPath();
+ctx.strokeStyle = "blue";
+ctx.moveTo(20, 20);
+ctx.lineTo(200, 20);
+ctx.stroke();
+
+// Second path
+ctx.beginPath();
+ctx.strokeStyle = "green";
+ctx.moveTo(20, 20);
+ctx.lineTo(120, 120);
+ctx.stroke();
