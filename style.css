@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  border: 0px;
+  margin: 0px;
+}
+body {
+  font-family: "Bebas Neue", cursive;
+}
+
+#canvas {
+  border: 2px solid black;
+}
