@@ -37,13 +37,42 @@ body {
 .color-selector {
   width: 1.7em;
   height: 1.7em;
-  border: 2px solid white;
+  border: 3px solid white;
   border-radius: 50%;
 }
+/* ===============
+color button highlights
+=============================== */
+.red[selector="true"] {
+  border-color: black;
+}
+.red[selector="false"] {
+  border-color: white;
+}
+.green[selector="true"] {
+  border-color: black;
+}
+.green[selector="false"] {
+  border-color: white;
+}
+.blue[selector="true"] {
+  border-color: black;
+}
+.blue[selector="false"] {
+  border-color: white;
+}
+.black[selector="true"] {
+  border-color: black;
+}
+.black[selector="false"] {
+  border-color: white;
+}
+
 .pallette {
   gap: 0.5em 0.5em;
 }
 #erase {
   border: 1.5px solid black;
   padding: 0.2em;
+  cursor: pointer;
 }
