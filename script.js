@@ -1,52 +1,53 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+//for sizing the canvas when opened or changed
 function resize() {
   canvas.height = window.innerHeight - 60;
   canvas.width = window.innerWidth;
 }
-//for sizing the canvas when opened or changed
 window.addEventListener("load", resize);
 window.addEventListener("resize", resize);
 
+//refresh or erase button
 document.getElementById("erase").addEventListener("click", () => {
   location.reload();
 });
 
-//painting logic
+// painting logic
 var isPainting = false;
-function draw(e) {
-  if (!isPainting) {
-    //if it's not drawing exit the function block
-    return;
-  }
-  ctx.beginPath();
-  ctx.lineWidth = "10";
-  ctx.lineCap = "round";
-  ctx.lineJoin = "round";
-  ctx.moveTo(e.offsetX, e.offsetY);
-  ctx.lineTo(e.offsetX, e.offsetY);
-  ctx.lineTo(e.offsetX, e.offsetY);
-  ctx.fill();
-  // console.log(e.offsetX + " " + e.offsetY);
-  ctx.stroke();
-}
-canvas.addEventListener("mousedown", (e) => {
-  isPainting = true;
-});
-canvas.addEventListener("touchdown", (e) => {
-  isPainting = true;
-});
-canvas.addEventListener("mouseup", (e) => {
-  isPainting = false;
-});
-canvas.addEventListener("touchup", (e) => {
-  isPainting = false;
-});
 
-canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("touchstart", start);
 canvas.addEventListener("touchmove", draw);
+canvas.addEventListener("touchup", stop);
 
+canvas.addEventListener("mousedown", start);
+canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mouseup", stop);
+
+function start(e) {
+  isPainting = true;
+  ctx.beginPath();
+  ctx.moveTo(e.offsetX, e.offsetY);
+  console.log(e.offsetX + " " + e.offsetY);
+  e.preventDefault();
+}
+function draw(e) {
+  if (isPainting) {
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.lineWidth = 10;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.stroke();
+  }
+}
+function stop(e) {
+  if (isPainting) {
+    ctx.stroke();
+    ctx.closePath();
+    isPainting = false;
+  }
+}
 //color buttons highlight and color stroke logic
 const red = document.getElementById("color-selector-red");
 const green = document.getElementById("color-selector-green");
