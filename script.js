@@ -5,13 +5,6 @@ function resize() {
   canvas.height = window.innerHeight - 60;
   canvas.width = window.innerWidth;
 }
-resize();
-
-//canvas test
-ctx.beginPath();
-ctx.moveTo(20, 20);
-ctx.lineTo(50, 20);
-ctx.lineTo(50, 50);
-ctx.stroke();
-ctx.closePath();
-ctx.stroke();
+//for sizing the canvas when opened or changed
+window.addEventListener("load", resize);
+window.addEventListener("resize", resize);
