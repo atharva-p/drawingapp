@@ -23,24 +23,22 @@ function draw(e) {
   ctx.beginPath();
   ctx.lineWidth = "10";
   ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.moveTo(e.offsetX, e.offsetY);
   ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.fill();
   // console.log(e.offsetX + " " + e.offsetY);
   ctx.stroke();
 }
 canvas.addEventListener("mousedown", (e) => {
   isPainting = true;
 });
-canvas.addEventListener("touchdown", (e) => {
-  isPainting = true;
-});
 canvas.addEventListener("mouseup", (e) => {
   isPainting = false;
 });
-canvas.addEventListener("touchup", (e) => {
-  isPainting = false;
-});
+
 canvas.addEventListener("mousemove", draw);
-canvas.addEventListener("touchmove", draw);
 
 //color buttons highlight and color stroke logic
 const red = document.getElementById("color-selector-red");
