@@ -19,7 +19,7 @@ var isPainting = false;
 
 canvas.addEventListener("touchstart", start);
 canvas.addEventListener("touchmove", draw);
-canvas.addEventListener("touchup", stop);
+canvas.addEventListener("touchend", stop);
 
 canvas.addEventListener("mousedown", start);
 canvas.addEventListener("mousemove", draw);
@@ -30,6 +30,7 @@ function start(e) {
   ctx.beginPath();
   ctx.moveTo(e.offsetX, e.offsetY);
   console.log(e.offsetX + " " + e.offsetY);
+  console.log(e);
   e.preventDefault();
 }
 function draw(e) {
