@@ -17,23 +17,23 @@ document.getElementById("erase").addEventListener("click", () => {
 // painting logic
 var isPainting = false;
 
-canvas.addEventListener("touchstart", start);
-canvas.addEventListener("touchmove", draw);
+canvas.addEventListener("touchstart", startTouch);
+canvas.addEventListener("touchmove", drawTouch);
 canvas.addEventListener("touchend", stop);
 
-canvas.addEventListener("mousedown", start);
-canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mousedown", startMouse);
+canvas.addEventListener("mousemove", drawMouse);
 canvas.addEventListener("mouseup", stop);
 
-function start(e) {
+//functions for mouse click events
+function startMouse(e) {
   isPainting = true;
   ctx.beginPath();
   ctx.moveTo(e.offsetX, e.offsetY);
-  console.log(e.offsetX + " " + e.offsetY);
-  console.log(e);
+  console.log(e.offsetX + " this is mouse event " + e.offsetY);
   e.preventDefault();
 }
-function draw(e) {
+function drawMouse(e) {
   if (isPainting) {
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.lineWidth = 10;
@@ -42,6 +42,24 @@ function draw(e) {
     ctx.stroke();
   }
 }
+//functions for touch events
+function startTouch(e) {
+  isPainting = true;
+  ctx.beginPath();
+  ctx.moveTo(e.touches[0].clientX, e.touches[0].clientY - 60);
+  console.log(e.touches[0].clientX + " " + e.touches[0].clientY);
+  e.preventDefault();
+}
+function drawTouch(e) {
+  if (isPainting) {
+    ctx.lineTo(e.touches[0].clientX, e.touches[0].clientY - 60);
+    ctx.lineWidth = 10;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.stroke();
+  }
+}
+
 function stop(e) {
   if (isPainting) {
     ctx.stroke();
