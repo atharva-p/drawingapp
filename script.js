@@ -32,7 +32,7 @@ function startMouse(e) {
   isPainting = true;
   ctx.beginPath();
   ctx.moveTo(e.offsetX, e.offsetY);
-  console.log(e.offsetX + " this is mouse event " + e.offsetY);
+  console.log(e.offsetX + " " + e.offsetY);
   e.preventDefault();
 }
 function drawMouse(e) {
