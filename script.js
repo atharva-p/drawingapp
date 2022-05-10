@@ -1,6 +1,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+
+
 //for sizing the canvas when opened or changed
 function resize() {
   canvas.height = window.innerHeight - 60;
@@ -72,11 +74,13 @@ const red = document.getElementById("color-selector-red");
 const green = document.getElementById("color-selector-green");
 const blue = document.getElementById("color-selector-blue");
 const black = document.getElementById("color-selector-black");
+const brown = document.getElementById("color-selector-brown");
 red.addEventListener("click", () => {
   red.setAttribute("selector", "true");
   green.setAttribute("selector", "false");
   blue.setAttribute("selector", "false");
   black.setAttribute("selector", "false");
+  brown.setAttribute("selector", "false");
   ctx.strokeStyle = "red";
 });
 green.addEventListener("click", () => {
@@ -84,6 +88,7 @@ green.addEventListener("click", () => {
   green.setAttribute("selector", "true");
   blue.setAttribute("selector", "false");
   black.setAttribute("selector", "false");
+  brown.setAttribute("selector", "false");
   ctx.strokeStyle = "green";
 });
 blue.addEventListener("click", () => {
@@ -91,12 +96,22 @@ blue.addEventListener("click", () => {
   green.setAttribute("selector", "false");
   blue.setAttribute("selector", "true");
   black.setAttribute("selector", "false");
+  brown.setAttribute("selector", "false");
   ctx.strokeStyle = "blue";
 });
 black.addEventListener("click", () => {
   red.setAttribute("selector", "false");
   green.setAttribute("selector", "false");
   blue.setAttribute("selector", "false");
+  brown.setAttribute("selector", "false");
   black.setAttribute("selector", "true");
+  ctx.strokeStyle = "black";
+});
+brown.addEventListener("click", () => {
+  red.setAttribute("selector", "false");
+  green.setAttribute("selector", "false");
+  blue.setAttribute("selector", "false");
+  black.setAttribute("selector", "false");
+  brown.setAttribute("selector", "true");
   ctx.strokeStyle = "black";
 });
