@@ -67,7 +67,12 @@ color button highlights
 .black[selector="false"] {
   border-color: white;
 }
-
+.brown[selector="true"] {
+  border-color: black;
+}
+.brown[selector="false"] {
+  border-color: white;
+}
 .pallette {
   gap: 0.5em 0.5em;
 }
