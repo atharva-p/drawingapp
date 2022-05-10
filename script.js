@@ -113,5 +113,5 @@ brown.addEventListener("click", () => {
   blue.setAttribute("selector", "false");
   black.setAttribute("selector", "false");
   brown.setAttribute("selector", "true");
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = "brown";
 });
