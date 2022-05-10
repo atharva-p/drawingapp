@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-console.log("hello kavipriya");
+console.log("Kavii");
 
 //for sizing the canvas when opened or changed
 function resize() {
